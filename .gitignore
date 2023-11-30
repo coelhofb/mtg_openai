@@ -3,7 +3,7 @@ bkp/
 dev/
 mongodb/
 others/
-static/cards/
+static/cards/*.*
 
 *.pyc
 __pycache__/
