@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main_iphone.css">
+    <title>mAgIc the Hazarding</title>
+</head>
+
+<body>
+    <div id="main_page">
+        <h1><span>m</span><span style="color: red;">A</span><span>g</span><span style="color: red;">I</span><span><a href="/">c the Hazarding</a></span></h1>
+            
+        {% if blank %}     
+            <div class="mtg_card mtg_Blank_card">
+                <div class = "card_form">
+                    <form method="POST"
+                        action="{{ url_for('generate_card') }}">
+                        <!-- <input type="text"
+                            theme="username"
+                            placeholder="Choose your Theme"> -->      
+                        <label>Card Name or Theme:</label>
+                        <input type="text" id="theme" name="theme" required minlength="4" maxlength="36" size="16" />
+                        <button id="botao" type="submit" onclick="myFunction()">Generate Card</button>
+                    </form>
+                </div>
+                <div id="waiting" onloadstart="hide_div()">
+                    <p>Wait! Our wizards are working on your new card...</p>
+                </div>
+                <div id="footer">
+                    <a href="{{ url_for('load_random_card') }}">Give me any Card!</a>
+                </div>
+            </div>
+        {% endif %}  
+        
+        {% if mtg_card %}     
+            <div class="mtg_card mtg_{{ mtg_card.color_code }}_card">
+                <div id="card_name">
+                    <span>{{ mtg_card.name }}</span>
+                    <span>{{ mtg_card.ntimes }}</span>
+                    <span class="mana">
+                        {% for mana in mtg_card.mana_cost %}
+                        {% if mana %}
+                          <img class="mana_symbol" src= "../static/{{ mana }}_mana.png">
+                        {% endif %}
+                        {% endfor %}
+                    </span>
+                    
+                </div>
+
+                <div id="card_illustration" style="background-image: url('../{{out_img_path}}{{ mtg_card.illustration }}');">
+                </div>
+         
+                <div id="card_type">
+                    <span>{{ mtg_card.type }}</span>
+                </div>
+                <div id="card_ability">
+                    {% for ability in mtg_card.ability %}
+                    {% if ability %}
+                    <li class="no_bullet">{{ ability }}</li>
+                    {% endif %}
+                    {% endfor %}
+               </div> 
+                
+               {% if mtg_card.pt != 'N/A' %} 
+                <div id="card_pt">
+                        <span>{{ mtg_card.pt }}</span>
+                    </div>
+                {% endif %}
+                <div id="footer">
+                    <a href="{{ url_for('load_random_card') }}">Give me any Card!</a>
+                </div>
+                
+            </div>
+            
+        {% endif %}             
+        
+    </div>
+
+</body>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("waiting");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+      var y = document.getElementById("botao");
+      if (y.style.display === "none") {
+        y.style.display = "block";
+      } else {
+        y.style.display = "none";
+      }     
+
+    }
+      window.onload = function(){
+      document.getElementById("waiting").style.display='none';
+};
+    </script>
+</html>
