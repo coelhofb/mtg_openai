@@ -59,6 +59,8 @@ def generate_mtg_card(theme):
       mtg_card["color_code"] = 'Golden'
    elif mtg_card["type"] == 'Land':
       mtg_card["color_code"] = 'Land'
+   elif mtg_card["color_qty"] == 0:
+      mtg_card["color_code"] = 'Colorless'
    else: mtg_card["color_code"] = mtg_card["color"][0]
 
    for i in range(6,lines_size):
