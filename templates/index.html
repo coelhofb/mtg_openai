@@ -19,7 +19,7 @@
                         <!-- <input type="text"
                             theme="username"
                             placeholder="Choose your Theme"> -->      
-                        <label>Card Name or Theme:</label>
+                        <label id="labelbox">Card Name or Theme:</label>
                         <input type="text" id="theme" name="theme" required minlength="4" maxlength="36" size="16" />
                         <button id="botao" type="submit" onclick="myFunction()">Generate Card</button>
                     </form>
@@ -93,7 +93,18 @@
       } else {
         y.style.display = "none";
       }     
-
+      var z = document.getElementById("theme");
+      if (z.style.display === "none") {
+        z.style.display = "block";
+      } else {
+        z.style.display = "none";
+      }
+      var w = document.getElementById("labelbox");
+      if (w.style.display === "none") {
+        w.style.display = "block";
+      } else {
+        w.style.display = "none";
+      }         
     }
       window.onload = function(){
       document.getElementById("waiting").style.display='none';

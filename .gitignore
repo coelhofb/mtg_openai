@@ -6,7 +6,7 @@ mongodb/
 others/
 static/cards/*
 !static/cards/cards_folder.txt 
-
+!static/cards/error.png
 *.pyc
 __pycache__/
 

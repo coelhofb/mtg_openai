@@ -66,14 +66,16 @@ def generate_card():
         
     mtg_card = {}
     mtg_card_img = ''
+    
     try:
         mtg_card = generate_mtg_card(theme)
         try:
-            mtg_card_img = generate_illustration(mtg_card["theme"], mtg_card["name"],OUT_IMG_PATH)
+            mtg_card_img = generate_illustration(mtg_card["theme"], mtg_card["name"],mtg_card["type"],OUT_IMG_PATH)
         except:
             mtg_card_img = 'error.png'    
-    except:
+    except Exception as e:
         mtg_card = {"name": 'Error generating Mtg Card'}
+        print(str(e))
     
     mtg_card["date"] = datetime.now(tz=timezone.utc)
     mtg_card["illustration"] = mtg_card_img
