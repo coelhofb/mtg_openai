@@ -7,19 +7,17 @@ h1 {
   color: white;
   text-align: center;
   font-size:48px;
-  margin-bottom: 3px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+  font-family: Verdana, sans-serif;
 }
 
 #main_page {
   background-color: rgb(17, 16, 24);
-  margin: 2.5% auto;
- 
+  margin: 2.5% auto; 
   border-radius: 10px;
-
   width: 400px;   
-  height: 720px;
-
-  
+  height: 720px;  
 }
 
 /* @media screen and (max-width: 1400px) {
@@ -105,14 +103,16 @@ margin-right: 5px ;
 #card_name {
   /* background-color: white; */
   color: white;
-  font-size: 16px;
+  font-size: 20px;
+  text-shadow: 1px 1px #000000;
   position: relative;
   /* left: 30px; */
-  margin-top: 25px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  margin-top: 24px;
+  /* font-family:Georgia, 'Times New Roman', Times, serif; */
+  font-family: 'Goudy Mediaeval', sans-serif;
   /* display: inline; */
   width: 330px;
-  margin-left: 30px;
+  margin-left: 35px;
   }
 
  #card_type {
@@ -121,9 +121,11 @@ margin-right: 5px ;
     font-size: 16px;
     position: relative;
 
-    margin-top: 6px;
-    margin-left: 30px;
+    margin-top: 5px;
+    margin-left: 35px;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 1px 1px #000000;
+    
  }
 
 
@@ -139,10 +141,35 @@ margin-right: 5px ;
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
+#card_credits {
+  /* background-color: white; */
+  color: white;
+  font-size: 15px;
+  /* font-weight: bold; */
+  text-shadow: 1px 1px #000000;
+  position: absolute;
+  left:35px;
+  bottom: 60px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+#website {
+  /* background-color: white; */
+  color: white;
+  font-size: 11px;
+  /* font-weight: bold; */
+  /* text-shadow: 1px 1px #000000; */
+  position: absolute;
+  left:36px;
+  bottom: 49px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
 #card_illustration {
 /* background-image: url("../static/zelda.png"); */
 background-size: cover ;
-width: 300px;
+width: 299px;
 /* width: 76%; */
 height: 245px;
 /* height: 20%; */
@@ -150,7 +177,7 @@ background-repeat: no-repeat;
 position: relative;
 
 margin-left: 45px;
-margin-top: 7px;
+margin-top: 4px;
 /* left: 12%;
 top: 1%; */
 }
@@ -185,8 +212,9 @@ top: 1%; */
       font-family:Georgia, 'Times New Roman', Times, serif;
     }
 
-    a {color:white;}         /* Unvisited link  */
+a {color:white;}         /* Unvisited link  */
 a:visited {color:whitesmoke;} /* Visited link    */
+a:link { text-decoration: none; }
 
 .no_bullet { 
     list-style-type: none; /* Remove bullets */
@@ -195,16 +223,20 @@ a:visited {color:whitesmoke;} /* Visited link    */
 }    
   
 .mana {
-      position: absolute;
-  
+      position: absolute;  
       right:0;
       font-size: 0px;
       margin: 0;
+      margin-top: 3px;
+      margin-right: 2px;
+}
+  .mana_symbol {    
+    width: 18px;    
+    
 }
 
-  .mana_symbol {
-    
-    width: 20px;
-    padding: 0px; 
-
+.set_symbol {    
+  width: 26px;  
+  margin-right: 35px;
+  margin-top: -7px;  
 }

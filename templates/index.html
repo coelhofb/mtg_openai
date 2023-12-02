@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/goudy-mediaeval" rel="stylesheet">
     <link rel="stylesheet" href="../static/main_iphone.css">
     <title>mAgIc the Hazarding</title>
 </head>
@@ -53,6 +54,9 @@
          
                 <div id="card_type">
                     <span>{{ mtg_card.type }}</span>
+                    <span class="mana">
+                        <img class="set_symbol" src= "../static/set_icon_black.png">
+                     </span>
                 </div>
                 <div id="card_ability">
                     {% for ability in mtg_card.ability %}
@@ -61,7 +65,12 @@
                     {% endif %}
                     {% endfor %}
                </div> 
-                
+               <div id="card_credits">
+                <span>Illus. mAgIc The Hazarding</span>
+            </div>
+            <div id="website">
+              <span>magicai.datalabmaster.com</span>
+          </div>
                {% if mtg_card.pt != 'N/A' %} 
                 <div id="card_pt">
                         <span>{{ mtg_card.pt }}</span>

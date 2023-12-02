@@ -6,7 +6,8 @@ import hashlib
 import numpy as np
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-GPT_MODEL = "gpt-3.5-turbo"
+# GPT_MODEL = "gpt-3.5-turbo"
+GPT_MODEL = "gpt-3.5-turbo-1106"
 GPT_MODEL_PARAMS = {"temperature": 1, "max_tokens": 256, "top_p":1, "frequency_penalty":0,"presence_penalty":0}
 
 def generate_mtg_card(theme):
@@ -22,6 +23,7 @@ def generate_mtg_card(theme):
    openai.api_key = OPENAI_API_KEY
    response = openai.ChatCompletion.create(
     model=GPT_MODEL,
+    response_format={ "type": "json_object" },
     messages=[
       {
         "role": "user",
@@ -60,7 +62,7 @@ def generate_mtg_card(theme):
    else: mtg_card["color_code"] = mtg_card["color"][0]
     
    pt = ''
-   if mtg_card["power"] not in ['Null','','None','-','--']:
+   if mtg_card["power"] is not None and mtg_card["power"] not in ['Null','','None','-','--']:
     pt = str(mtg_card["power"])+'/'+str(mtg_card["toughness"])
    mtg_card["pt"] = pt
   
@@ -128,7 +130,7 @@ def generate_mtg_card_bkp(theme):
 
    return mtg_card
 
-def generate_illustration(theme, card_name,card_type,out_file_path):
+def generate_illustration_bkp(theme, card_name,card_type,out_file_path):
    openai.api_key = OPENAI_API_KEY
    response = openai.Image.create(
     prompt="Create an ilustration based on " + theme + " " + card_name + " " + card_type + '. The illustration should use Magic The Gathering artwork style.',
@@ -146,4 +148,23 @@ def generate_illustration(theme, card_name,card_type,out_file_path):
 
    return(mtg_img_file)
 
+def generate_illustration(theme, card_name,card_type,out_file_path):
+   openai.api_key = OPENAI_API_KEY
+   response = openai.Image.create(
+    model="dall-e-3",
+    prompt="Create an ilustration based on " + theme + " " + card_name + " " + card_type + '. The illustration should use Magic The Gathering artwork style.',
+    n=1,
+    size="1024x1024",
+    quality="standard"
+   )
+   image_url = response['data'][0]['url']
+
+   salt = str(np.random.randint(100, size=1))
+   hashstr = hashlib.md5(str(image_url[-10:]+salt).encode()).hexdigest() # 32 character hexadecimal
+   mtg_img_file = hashstr[0:23]+'.png'
+   mtg_img_path = out_file_path+mtg_img_file
+
+   urllib.request.urlretrieve(image_url, filename=mtg_img_path)
+
+   return(mtg_img_file)
 
