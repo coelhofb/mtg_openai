@@ -149,7 +149,7 @@ margin-right: 5px ;
   text-shadow: 1px 1px #000000;
   position: absolute;
   left:35px;
-  bottom: 60px;
+  bottom: 58px;
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
 #website {
@@ -160,7 +160,7 @@ margin-right: 5px ;
   /* text-shadow: 1px 1px #000000; */
   position: absolute;
   left:36px;
-  bottom: 49px;
+  bottom: 47px;
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -214,7 +214,8 @@ top: 1%; */
 
 a {color:white;}         /* Unvisited link  */
 a:visited {color:whitesmoke;} /* Visited link    */
-a:link { text-decoration: none; }
+/* a:link { text-decoration: none; } */
+a:link { text-decoration-line: none;}
 
 .no_bullet { 
     list-style-type: none; /* Remove bullets */
