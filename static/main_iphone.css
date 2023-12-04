@@ -103,7 +103,7 @@ margin-right: 5px ;
 #card_name {
   /* background-color: white; */
   color: white;
-  font-size: 20px;
+  font-size: 19px;
   text-shadow: 1px 1px #000000;
   position: relative;
   /* left: 30px; */
@@ -118,7 +118,7 @@ margin-right: 5px ;
  #card_type {
     /* background-color: white; */
     color: white;
-    font-size: 16px;
+    font-size: 15px;
     position: relative;
 
     margin-top: 5px;
