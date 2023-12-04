@@ -87,11 +87,3 @@ def generate_card():
         collection.insert_one(mtg_card)
 
     return render_template("index.html", mtg_card=mtg_card, out_img_path=OUT_IMG_PATH)
-
-@app.route("/generate_test", methods=("GET", "POST"))    
-def generate_card_test():
-    received_post = request.form.to_dict()
-    theme = received_post["theme"]
-
-    print(theme)
-    return render_template("index.html",blank=True)    
