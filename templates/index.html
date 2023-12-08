@@ -61,7 +61,7 @@
                 <div id="card_ability">
                     {% for ability in mtg_card.ability %}
                     {% if ability %}
-                    <li class="no_bullet">{{ ability }}</li>
+                    <li class="no_bullet">{{ ability | safe }}</li>
                     {% endif %}
                     {% endfor %}
                </div> 

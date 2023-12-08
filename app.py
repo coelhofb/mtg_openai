@@ -44,6 +44,8 @@ def load_card_id(card_id):
         collection = db[DB_MTG_CARDS_COLLECTION]
         mtg_card = collection.find({"_id": ObjectId(card_id)})[0]
         client.close()
+       
+        mtg_card["ability"] = adjust_ability(mtg_card["ability"])
   
     return render_template("index.html", mtg_card=mtg_card, out_img_path=OUT_IMG_PATH)
 
@@ -56,6 +58,8 @@ def load_random_card():
         sample = collection.aggregate([{ "$sample": { "size": 1 } }])
         mtg_card = list(sample)[0]
         client.close()
+
+        mtg_card["ability"] = adjust_ability(mtg_card["ability"])
   
     return render_template("index.html", mtg_card=mtg_card , out_img_path=OUT_IMG_PATH)
 
@@ -69,29 +73,28 @@ def generate_card():
     
     try:
         mtg_card = generate_mtg_card(theme)
+       
         try:
-            mtg_card_img = generate_illustration(mtg_card["theme"], mtg_card["name"],mtg_card["type"],OUT_IMG_PATH)
+              mtg_card_img = generate_illustration(mtg_card["theme"], mtg_card["name"],mtg_card["type"],OUT_IMG_PATH)
         except:
-            mtg_card_img = 'error.png'    
+              mtg_card_img = 'error.png'
+
+        mtg_card["date"] = datetime.now(tz=timezone.utc)
+        mtg_card["illustration"] = mtg_card_img
+       
+        #Store in Mongo DB
+        card_id = ''
+        with MongoClient(MONGO_URL) as client:
+            db = client[DB_MTG_CARDS]
+            collection = db[DB_MTG_CARDS_COLLECTION]
+            card_id = str(collection.insert_one(mtg_card).inserted_id)
+
+        return redirect("/"+card_id)
+        
     except Exception as e:
         mtg_card = {"name": 'Error generating Mtg Card'}
         print(str(e))
+        return render_template("index.html", mtg_card=mtg_card , out_img_path=OUT_IMG_PATH)
     
-    mtg_card["date"] = datetime.now(tz=timezone.utc)
-    mtg_card["illustration"] = mtg_card_img
-
-    #Store in Mongo DB
-    with MongoClient(MONGO_URL) as client:
-        db = client[DB_MTG_CARDS]
-        collection = db[DB_MTG_CARDS_COLLECTION]
-        collection.insert_one(mtg_card)
-
-    return render_template("index.html", mtg_card=mtg_card, out_img_path=OUT_IMG_PATH)
-
-@app.route("/generate_test", methods=("GET", "POST"))    
-def generate_card_test():
-    received_post = request.form.to_dict()
-    theme = received_post["theme"]
-
-    print(theme)
-    return render_template("index.html",blank=True)    
+    
+    

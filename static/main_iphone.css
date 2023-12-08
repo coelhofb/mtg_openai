@@ -233,7 +233,11 @@ a:link { text-decoration-line: none;}
 }
   .mana_symbol {    
     width: 18px;    
-    
+}
+
+.mana_text {    
+  width: 15px;
+  vertical-align:text-bottom;
 }
 
 .set_symbol {    
