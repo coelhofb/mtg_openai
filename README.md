@@ -9,7 +9,7 @@ This is a simple Python Flask web application which connects with OpenAI APIs to
 
 ## Prerequisites
 You will need :
-- Python 3.12
+- Python 3.10.4 or greater
 - MongoDB: Any instance of MongoDB running locally or remote. You can specificy the connection URL in the config file.
 - A valid API key from OpenAI (you can get one from your account settings: https://platform.openai.com/account/api-keys)
 
