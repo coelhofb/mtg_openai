@@ -8,15 +8,12 @@ from pymongo import MongoClient, ASCENDING, DESCENDING
 from bson.objectid import ObjectId
 from magic_open_ai import *
 
-
-
 MONGO_USER = os.getenv("MONGO_USER")
 MONGO_PASS = os.getenv("MONGO_PASS")
 OUT_IMG_PATH = 'static/cards/'
 MONGO_URL = 'mongodb://'+ MONGO_USER +':' + MONGO_PASS + '@localhost:27017'
 DB_MTG_CARDS = 'db_mtg_cards'
 DB_MTG_CARDS_COLLECTION = 'db_mtg_cards_collection'
-
 
 app = Flask(__name__)
 
