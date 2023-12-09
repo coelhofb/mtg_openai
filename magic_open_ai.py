@@ -128,7 +128,7 @@ def generate_mtg_card(theme):
    else: mtg_card["color_code"] = mtg_card["color"][0]
     
    pt = ''
-   if mtg_card["power"] is not None and mtg_card["power"] not in [0,'Null','','None','-','--']:
+   if mtg_card["toughness"] is not None and mtg_card["toughness"] not in [0,'Null','','None','-','--']:
     pt = str(mtg_card["power"])+'/'+str(mtg_card["toughness"])
    mtg_card["pt"] = pt
   
