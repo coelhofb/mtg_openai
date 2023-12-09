@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.cdnfonts.com/css/goudy-mediaeval" rel="stylesheet">
-    <link rel="stylesheet" href="../static/main_iphone.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <script type="text/javascript" src="../static/js/index.js"></script>
     <title>mAgIc the Hazarding</title>
 </head>
 
@@ -42,7 +43,7 @@
                     <span class="mana">
                         {% for mana in mtg_card.mana_cost %}
                         {% if mana %}
-                          <img class="mana_symbol" src= "../static/{{ mana }}_mana.png">
+                          <img class="mana_symbol" src= "../static/img/{{ mana }}_mana.png">
                         {% endif %}
                         {% endfor %}
                     </span>
@@ -55,7 +56,7 @@
                 <div id="card_type">
                     <span>{{ mtg_card.type }}</span>
                     <span class="mana">
-                        <img class="set_symbol" src= "../static/set_icon_black.png">
+                        <img class="set_symbol" src= "../static/img/set_icon_black.png">
                      </span>
                 </div>
                 <div id="card_ability">
@@ -88,35 +89,4 @@
 
 </body>
 
-<script>
-    function myFunction() {
-      var x = document.getElementById("waiting");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-      var y = document.getElementById("botao");
-      if (y.style.display === "none") {
-        y.style.display = "block";
-      } else {
-        y.style.display = "none";
-      }     
-      var z = document.getElementById("theme");
-      if (z.style.display === "none") {
-        z.style.display = "block";
-      } else {
-        z.style.display = "none";
-      }
-      var w = document.getElementById("labelbox");
-      if (w.style.display === "none") {
-        w.style.display = "block";
-      } else {
-        w.style.display = "none";
-      }         
-    }
-      window.onload = function(){
-      document.getElementById("waiting").style.display='none';
-};
-    </script>
 </html>

@@ -119,16 +119,16 @@ def adjust_ability(ability):
 
    adjusted_ability = []  
    for ability_line in ability:
-      ability_line=ability_line.replace("{"+"T"+"}",'<span><img class="mana_text" src= "../static/T_mana.png"></span>')
-      ability_line=ability_line.replace("{"+"R"+"}",'<span"><img class="mana_text" src= "../static/R_mana.png"></span>')
-      ability_line=ability_line.replace("{"+"B"+"}",'<span"><img class="mana_text" src= "../static/B_mana.png"></span>')
-      ability_line=ability_line.replace("{"+"U"+"}",'<span"><img class="mana_text" src= "../static/U_mana.png"></span>')
-      ability_line=ability_line.replace("{"+"W"+"}",'<span"><img class="mana_text" src= "../static/W_mana.png"></span>')
-      ability_line=ability_line.replace("{"+"G"+"}",'<span"><img class="mana_text" src= "../static/G_mana.png"></span>')
-      ability_line=ability_line.replace("{"+"C"+"}",'<span"><img class="mana_text" src= "../static/1_mana.png"></span>')
+      ability_line=ability_line.replace("{"+"T"+"}",'<span><img class="mana_text" src= "../static/img/T_mana.png"></span>')
+      ability_line=ability_line.replace("{"+"R"+"}",'<span"><img class="mana_text" src= "../static/img/R_mana.png"></span>')
+      ability_line=ability_line.replace("{"+"B"+"}",'<span"><img class="mana_text" src= "../static/img/B_mana.png"></span>')
+      ability_line=ability_line.replace("{"+"U"+"}",'<span"><img class="mana_text" src= "../static/img/U_mana.png"></span>')
+      ability_line=ability_line.replace("{"+"W"+"}",'<span"><img class="mana_text" src= "../static/img/W_mana.png"></span>')
+      ability_line=ability_line.replace("{"+"G"+"}",'<span"><img class="mana_text" src= "../static/img/G_mana.png"></span>')
+      ability_line=ability_line.replace("{"+"C"+"}",'<span"><img class="mana_text" src= "../static/img/1_mana.png"></span>')
       
       for i in range(10):
         s = str(i)
-        ability_line=ability_line.replace("{"+s+"}",'<span"><img class="mana_text" src= "../static/'+s+'_mana.png"></span>')
+        ability_line=ability_line.replace("{"+s+"}",'<span"><img class="mana_text" src= "../static/img/'+s+'_mana.png"></span>')
       adjusted_ability.append(ability_line)
    return adjusted_ability

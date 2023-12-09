@@ -70,33 +70,33 @@ margin-right: 5px ;
       } 
 
 .mtg_Golden_card {
-  background-image: url("../static/golden_card.png");
+  background-image: url("../../static/img/golden_card.png");
   }
 .mtg_Green_card {
-    background-image: url("../static/green_card.png");
+    background-image: url("../../static/img/green_card.png");
   } 
 .mtg_Red_card {
-    background-image: url("../static/red_card.png");
+    background-image: url("../../static/red_card.png");
 } 
 .mtg_Black_card {
-  background-image: url("../static/Black_card.png");
+  background-image: url("../../static/img/Black_card.png");
 }
 .mtg_White_card {
-  background-image: url("../static/White_card.png");
+  background-image: url("../../static/img/White_card.png");
 }  
 .mtg_Blank_card {
-  background-image: url("../static/blank_card.png");
+  background-image: url("../../static/img/blank_card.png");
 }  
 .mtg_Blue_card {
-  background-image: url("../static/Blue_card.png");
+  background-image: url("../../static/img/Blue_card.png");
 }  
 
 .mtg_Colorless_card {
-  background-image: url("../static/Colorless_card.png");
+  background-image: url("../../static/img/Colorless_card.png");
 }  
 
 .mtg_Land_card {
-  background-image: url("../static/Land_card.png");
+  background-image: url("../../static/img/Land_card.png");
 }  
 
 
@@ -167,7 +167,7 @@ margin-right: 5px ;
 
 
 #card_illustration {
-/* background-image: url("../static/zelda.png"); */
+/* background-image: url("../static/img/zelda.png"); */
 background-size: cover ;
 width: 299px;
 /* width: 76%; */
