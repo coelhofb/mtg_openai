@@ -38,10 +38,10 @@ def generate_card():
     
     try:
         mtg_card = generate_mtg_card(theme)
-        #try:
-        #      mtg_card_img = generate_illustration(mtg_card["theme"], mtg_card["name"],mtg_card["type"],OUT_IMG_PATH)
-        #except:
-        #      mtg_card_img = 'error.png'
+        try:
+              mtg_card_img = generate_illustration(mtg_card["theme"], mtg_card["name"],mtg_card["type"],OUT_IMG_PATH)
+        except:
+              mtg_card_img = 'error.png'
 
         mtg_card["date"] = datetime.now(tz=timezone.utc)
         mtg_card["illustration"] = mtg_card_img
