@@ -38,10 +38,10 @@ def generate_card():
     
     try:
         mtg_card = generate_mtg_card(theme)
-        try:
-              mtg_card_img = generate_illustration(mtg_card["theme"], mtg_card["name"],mtg_card["type"],OUT_IMG_PATH)
-        except:
-              mtg_card_img = 'error.png'
+        #try:
+        #      mtg_card_img = generate_illustration(mtg_card["theme"], mtg_card["name"],mtg_card["type"],OUT_IMG_PATH)
+        #except:
+        #      mtg_card_img = 'error.png'
 
         mtg_card["date"] = datetime.now(tz=timezone.utc)
         mtg_card["illustration"] = mtg_card_img
@@ -69,8 +69,9 @@ def load_card():
         collection = db[DB_MTG_CARDS_COLLECTION] 
         mtg_card = collection.find_one(sort=[( 'date', DESCENDING )])
         client.close()
+        return redirect("/"+str(mtg_card["_id"]))
   
-    return render_template("index.html", mtg_card=mtg_card, out_img_path=OUT_IMG_PATH)
+    r#eturn render_template("index.html", mtg_card=mtg_card, out_img_path=OUT_IMG_PATH)
 
 #Load Specific Card Id
 @app.route("/<card_id>", methods=("GET", "POST"))    

@@ -17,9 +17,9 @@ def generate_mtg_card(theme):
    {
    "name":  maximum 35 characters,
    "color":  list object with possible values Red, Black, Blue, Green, White, Colorless
-   "mana_cost":  only numbers and letters
+   "mana_cost":  only numbers and letters if format 3GR
    "type":  
-   "ability":  maximum of 300 characters. Each mana cost or tap need to be enclosure  { }
+   "ability":  maximum of 300 characters. Each mana cost or tap need to be curly braces enclosude in the format {3}{G}{R}
    "rarity": 
    "power":  integer
    "toughness":  integer
